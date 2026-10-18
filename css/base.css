@@ -1,0 +1,174 @@
+/* Desktop stage with centered phone frame; shrinks to viewport below 520px */
+
+.stage {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--phone-page-bg);
+}
+
+.phone {
+  position: relative;
+  width: var(--phone-w);
+  height: var(--phone-h);
+  background: var(--bg-app);
+  color: var(--ink);
+  border-radius: var(--phone-radius);
+  box-shadow:
+    0 0 0 10px var(--phone-frame),
+    0 0 0 12px var(--phone-chrome),
+    0 24px 60px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mocked iOS-style status bar inside the frame */
+.phone__statusbar {
+  position: relative;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  color: var(--ink);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.phone__statusbar::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  width: 110px;
+  height: 28px;
+  background: var(--phone-frame);
+  border-radius: 14px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.phone__statusbar-left {
+  width: 70px;
+}
+
+.phone__statusbar-right {
+  width: 70px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.phone__statusbar-right svg {
+  width: 16px;
+  height: 16px;
+  color: var(--ink);
+}
+
+/* Scrollable content area */
+.phone__viewport {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+/* Home indicator */
+.phone__home {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 134px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--ink);
+  opacity: 0.9;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+/* Screen stack */
+.screen {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--bg-app);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  will-change: transform, opacity;
+  scrollbar-width: none;
+}
+
+.screen::-webkit-scrollbar {
+  display: none;
+}
+
+.screen__inner {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px calc(32px + env(safe-area-inset-bottom)) 24px;
+  gap: 20px;
+}
+
+.screen__header {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  margin-bottom: 4px;
+}
+
+.screen__title {
+  font-size: 32px;
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-black);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.screen__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.screen__footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 24px;
+}
+
+/* Mobile: drop the phone frame below ~520px */
+@media (max-width: 520px) {
+  .stage {
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  .phone {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+    box-shadow: none;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .phone__statusbar,
+  .phone__statusbar::before,
+  .phone__home {
+    display: none;
+  }
+}
