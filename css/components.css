@@ -1,0 +1,614 @@
+/* ---------- Back / Icon buttons ---------- */
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-pill);
+  border-radius: var(--r-pill);
+  color: var(--ink);
+  transition: transform var(--dur-fast) var(--ease-std),
+    background var(--dur-fast) var(--ease-std);
+  flex-shrink: 0;
+}
+
+.icon-btn:active {
+  transform: scale(0.94);
+  background: var(--line);
+}
+
+.icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Logo pill ---------- */
+.logo-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-pill);
+  border-radius: var(--r-pill);
+  padding: 16px 34px;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-md);
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Title stack ---------- */
+.title-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 4px;
+}
+
+.title-stack__hey {
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: var(--fw-black);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.title-stack__line {
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: var(--fw-black);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* ---------- Primary button (pill, black) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 60px;
+  padding: 0 24px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--r-pill);
+  transition: transform var(--dur-fast) var(--ease-std),
+    background var(--dur-fast) var(--ease-std),
+    opacity var(--dur-fast) var(--ease-std);
+}
+
+.btn:active {
+  transform: scale(0.97);
+  background: var(--accent-press);
+}
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.btn--ghost {
+  background: var(--bg-surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.btn--ghost:active {
+  background: var(--bg-pill);
+}
+
+/* Button spinner for in-flight state */
+.btn__spin {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Input field (rounded pill) ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field__row {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.input {
+  width: 100%;
+  min-height: 60px;
+  padding: 0 22px;
+  border-radius: var(--r-pill);
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
+  transition: border-color var(--dur-fast) var(--ease-std),
+    background var(--dur-fast) var(--ease-std);
+}
+
+.input::placeholder {
+  color: var(--ink-faint);
+  font-weight: var(--fw-regular);
+}
+
+.input:focus {
+  border-color: var(--ink);
+}
+
+.input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.input--prefix {
+  width: 86px;
+  flex: 0 0 86px;
+  text-align: center;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-semibold);
+}
+
+.field__error {
+  color: var(--danger);
+  font-size: var(--fs-xs);
+  padding: 0 10px;
+  min-height: 16px;
+}
+
+.field__label {
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  font-weight: var(--fw-semibold);
+  padding: 0 4px;
+}
+
+/* ---------- Section label (e.g. "Enter OTP") ---------- */
+.section-label {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  color: var(--ink);
+  margin-top: 4px;
+}
+
+/* ---------- OTP ---------- */
+.otp {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.otp__cell {
+  flex: 1 1 0;
+  aspect-ratio: 1 / 1;
+  max-width: 72px;
+  border-radius: var(--r-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
+  text-align: center;
+  font-size: 22px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+  transition: border-color var(--dur-fast) var(--ease-std),
+    transform var(--dur-fast) var(--ease-std);
+}
+
+.otp__cell:focus {
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.otp__timer {
+  margin-top: 14px;
+  text-align: center;
+  color: var(--danger);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+}
+
+.otp__helper {
+  text-align: center;
+  color: var(--ink-mute);
+  font-size: var(--fs-sm);
+  padding: 0 4px;
+}
+
+.otp__helper strong {
+  color: var(--ink);
+  font-weight: var(--fw-semibold);
+}
+
+.otp__resend {
+  color: var(--ink);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  display: inline;
+}
+
+.otp__resend[aria-disabled="true"] {
+  color: var(--ink-faint);
+  cursor: not-allowed;
+}
+
+/* ---------- "or" divider ---------- */
+.or-divider {
+  text-align: center;
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  position: relative;
+  padding: 2px 0;
+}
+
+/* ---------- Google button ---------- */
+.btn--google {
+  background: var(--bg-surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  font-weight: var(--fw-semibold);
+}
+
+.btn--google:active {
+  background: var(--bg-pill);
+}
+
+.btn--google .google-mark {
+  width: 22px;
+  height: 22px;
+}
+
+/* ---------- Switcher link ---------- */
+.inline-link {
+  padding: 0 4px;
+  text-align: center;
+  color: var(--ink-mute);
+  font-size: var(--fs-sm);
+}
+
+.inline-link__cta {
+  color: var(--ink);
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+}
+
+/* ---------- Tabs (Front/Back) ---------- */
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 6px 0;
+}
+
+.tabs__btn {
+  padding: 10px 0;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--ink-faint);
+  text-align: center;
+  position: relative;
+  transition: color var(--dur-fast) var(--ease-std);
+}
+
+.tabs__btn[aria-selected="true"] {
+  color: var(--ink);
+}
+
+.tabs__btn[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 48px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+/* ---------- Upload card ---------- */
+.upload-card {
+  border: 1.5px dashed var(--line-dashed);
+  border-radius: var(--r-lg);
+  padding: 28px 20px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: var(--bg-surface);
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-std),
+    background var(--dur-fast) var(--ease-std),
+    transform var(--dur-fast) var(--ease-std);
+  text-align: center;
+}
+
+.upload-card:active {
+  transform: scale(0.99);
+}
+
+.upload-card[data-filled="true"] {
+  border-style: solid;
+  padding: 12px;
+  gap: 0;
+  cursor: default;
+}
+
+.upload-card__icon {
+  width: 72px;
+  height: 72px;
+  color: var(--ink);
+}
+
+.upload-card__label {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-md);
+  color: var(--ink);
+}
+
+.upload-card__preview {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  border-radius: var(--r-md);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--bg-pill);
+}
+
+.upload-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-xs);
+  color: var(--ink-mute);
+  padding: 0 2px;
+}
+
+.upload-note svg {
+  color: var(--info);
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.upload-note strong {
+  color: var(--ink);
+  font-weight: var(--fw-bold);
+}
+
+/* ---------- Subhead for sign-up document screens ---------- */
+.subhead {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+  padding: 0 2px;
+}
+
+.helper {
+  text-align: center;
+  color: var(--ink-mute);
+  font-size: var(--fs-sm);
+  padding: 0 6px;
+}
+
+.helper strong {
+  color: var(--ink);
+  font-weight: var(--fw-bold);
+}
+
+/* ---------- Toast ---------- */
+.toast-stack {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: calc(28px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--ink);
+  color: var(--ink-inverse);
+  padding: 14px 18px;
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  box-shadow: var(--shadow-lg);
+  pointer-events: auto;
+  animation: toast-in var(--dur-base) var(--ease-std);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast--success {
+  background: var(--success);
+  color: #fff;
+}
+
+.toast--error {
+  background: var(--danger);
+  color: #fff;
+}
+
+@keyframes toast-in {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-out {
+  to {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+}
+
+.toast[data-leaving="true"] {
+  animation: toast-out var(--dur-base) var(--ease-in) forwards;
+}
+
+/* ---------- Modal / sheet ---------- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 50;
+  animation: overlay-in var(--dur-base) var(--ease-std);
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  background: var(--bg-surface);
+  color: var(--ink);
+  border-radius: var(--r-lg);
+  padding: 40px 28px 32px 28px;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  animation: modal-in var(--dur-base) var(--ease-out);
+}
+
+@keyframes modal-in {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal__title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-black);
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.modal__body {
+  font-size: var(--fs-sm);
+  color: var(--ink-mute);
+  line-height: var(--lh-base);
+}
+
+.modal__check {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px auto;
+  border-radius: 50%;
+  background: var(--success-soft);
+  color: var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__check svg {
+  width: 32px;
+  height: 32px;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: check-draw 500ms var(--ease-out) 120ms forwards;
+}
+
+@keyframes check-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ---------- Document illustration (ID preview) ---------- */
+.id-preview {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-pill);
+  border-radius: var(--r-md);
+}
+
+.id-preview svg {
+  width: 90%;
+  height: 90%;
+}
+
+/* ---------- Fee amount box (large pill-shaped field) ---------- */
+.amount-field {
+  min-height: 68px;
+  padding: 0 26px;
+  border-radius: var(--r-pill);
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+}
+
+/* ---------- Skeletons ---------- */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-skeleton) 0%,
+    var(--bg-pill) 50%,
+    var(--bg-skeleton) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton 1.4s ease-in-out infinite;
+  border-radius: var(--r-sm);
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

@@ -1,0 +1,50 @@
+/* Home splash */
+.screen-home .screen__inner {
+  text-align: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.screen-home__spacer {
+  flex: 1 1 0;
+  min-height: 20px;
+}
+
+.screen-home__title {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-black);
+  color: var(--ink);
+}
+
+/* Login phone screen specific */
+.screen-login .logo-pill {
+  margin: 20px 0 60px 0;
+  align-self: flex-start;
+}
+
+/* Space the title under header when there's a back button */
+.screen--with-back .screen__inner {
+  padding-top: 20px;
+}
+
+.screen--with-back .title-stack {
+  margin-top: 48px;
+}
+
+.screen-login .title-stack {
+  margin-top: 0;
+}
+
+/* Document screen title variant: "Hey, Monkey D Luffy" (name) */
+.screen-document .title-stack {
+  margin-top: 48px;
+}
+
+.screen-document .section-label {
+  margin-top: 16px;
+}
+
+/* Pay fees screen */
+.screen-pay .amount-field {
+  margin-top: 16px;
+}
